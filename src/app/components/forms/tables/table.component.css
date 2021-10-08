@@ -1,0 +1,36 @@
+.table-mat-component {
+  min-width: 800px;
+  max-width: 800px;
+  width: 100%;
+}
+th td{
+  min-width: 70px;
+  max-width: 70px;
+  width: 100%;
+}
+.table-controller {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+.mat-column-reportsTo {
+  /*min-width: 800px;*/
+  flex: 0 0 10%;
+}
+mat-header-cell{
+  flex: 0 0 10%;
+}
+.mat-column-firstName {
+  width: 32px;
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+.mat-column-userType {
+  width: 15px;
+  padding-left: 10px;
+  padding-right: 15px;
+  text-align: left;
+}

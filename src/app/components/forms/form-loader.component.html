@@ -1,0 +1,9 @@
+<section [ngSwitch]="toggleOption">
+  <overview-component *ngSwitchCase="'home'"></overview-component>
+  <details-form *ngSwitchCase="'create'" [operation]="toggleOption"></details-form>
+  <details-form *ngSwitchCase="'edit'" [operation]="toggleOption"></details-form>
+  <details-form *ngSwitchCase="'delete'" [operation]="toggleOption"></details-form>
+  <details-form *ngSwitchCase="'appoint'" [operation]="toggleOption"></details-form>
+  <table-loader *ngSwitchCase="'search'"></table-loader>
+  <overview-component *ngSwitchDefault></overview-component>
+</section>

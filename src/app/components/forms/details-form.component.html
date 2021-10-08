@@ -1,0 +1,62 @@
+<form class="details-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [ngSwitch]="operation">
+      <section *ngSwitchCase="['create', 'edit'].includes(operation) ? operation : ''">
+        <table class="details-full-width"><tr>
+          <td><mat-form-field class="details-full-width" appearance="fill">
+            <mat-label>Given name</mat-label>
+            <input matInput formControlName="firstName">
+          </mat-form-field></td>
+          <td><mat-form-field class="details-full-width" appearance="fill">
+            <mat-label>Surname</mat-label>
+            <input matInput formControlName="lastName">
+          </mat-form-field></td>
+        </tr></table>
+        <mat-form-field class="details-full-width" appearance="fill">
+          <mat-label>Business Sector</mat-label>
+          <mat-select formControlName="userType" name="sectors">
+            <mat-option *ngFor="let sector of sectors" [value]="sector.value">
+              {{sector.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <table class="details-full-width" cellspacing="0"><tr>
+          <td>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <!--            [errorStateMatcher]="matcher"-->
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email"  [formControl]="emailElement"
+                     placeholder="Ex. anon@finastra.com">
+            </mat-form-field>
+          </td>
+          <td><mat-form-field class="details-full-width" appearance="fill">
+            <mat-label>Starting Balance</mat-label>
+            <input matInput #postalCode formControlName="totalBalance" maxlength="5" placeholder="Ex. 1300" value="1300">
+          </mat-form-field></td>
+        </tr></table>
+        <mat-form-field *ngIf="operation === 'edit'" class="details-full-width" appearance="fill">
+          <mat-label>Identification number </mat-label>
+          <input matInput formControlName="id" value="34759202">
+        </mat-form-field>
+      </section>
+      <section formGroupName="userIdForm" *ngSwitchCase="['delete', 'appoint'].includes(operation) ? operation : ''">
+        <mat-form-field class="details-full-width" appearance="fill">
+          <mat-label>Identification number </mat-label>
+          <input matInput formControlName="supId" value="">
+        </mat-form-field>
+        <mat-form-field *ngIf="operation === 'appoint'" class="details-full-width" appearance="fill">
+          <mat-label>Subordinate number </mat-label>
+          <input matInput formControlName="subId" value="">
+        </mat-form-field>
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>SUBMIT</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

@@ -1,0 +1,62 @@
+<form class="overview-panel">
+  <mat-card>
+    <mat-card-header class="overview-header">
+      <mat-card-title> </mat-card-title>
+      <mat-card-subtitle> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-grid-list cols="4" rowHeight="140px">
+        <mat-grid-tile
+          *ngFor="let tile of tiles"
+          [colspan]="tile.cols"
+          [rowspan]="tile.rows"
+          [style.background]="tile.color">
+          <div *ngIf="tile.text==='main'" class="flex-row">
+            <div class="temp ">
+              <span class="big-text">{{countMainAll}}</span>
+              <span>Registered</span>
+            </div>
+            <div class="white-box tp">
+              <span class="big-text">{{countMainBusiness}}</span>
+              <span>Development</span>
+            </div>
+            <div class="white-box tp">
+              <span class="big-text">{{countMainMarketing}}</span>
+              <span>Marketing</span>
+            </div>
+            <div class="white-box tp">
+              <span class="big-text">{{countMainSales}}</span>
+              <span>Sales</span>
+            </div>
+          </div>
+          <div *ngIf="tile.text==='success'" class="flex-row">
+            <div class="img-caption">
+              <img src="assets/contact-icon.png" class="">
+              <button mat-flat-button (click)="getCountNoneAssigned()">REFRESH</button>
+            </div>
+          </div>
+          <div *ngIf="tile.text==='warn'" class="flex-row">
+            <div class="temp ">
+              <span class="big-text-warn">[ {{countWarnUnassigned}} ]</span>
+              <span class="mat-accent">Unassigned</span>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+<!--      <div class="flex-row">-->
+<!--        <div class="temp">-->
+<!--          <span class="big-text">17 C</span>-->
+<!--          <span>Feels like </span>-->
+<!--          <span>12 C</span>-->
+<!--        </div>-->
+<!--        <div class="database">-->
+<!--          <img src="assets/db-icon.png" />-->
+<!--          <span>Available</span>-->
+<!--        </div>-->
+<!--      </div>-->
+    </mat-card-content>
+    <mat-card-actions>
+<!--      <button mat-button>REFRESH</button>-->
+    </mat-card-actions>
+  </mat-card>
+</form>
